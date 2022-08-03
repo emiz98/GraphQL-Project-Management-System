@@ -37,6 +37,8 @@ const ProjectType = new GraphQLObjectType({
         return Client.findById(parent.clientId);
       },
     },
+    createdAt: { type: GraphQLString },
+    updatedAt: { type: GraphQLString },
   }),
 });
 
@@ -68,6 +70,12 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return Project.findById(args.id);
+      },
+    },
+    projectsByStatus: {
+      type: new GraphQLList(ProjectType),
+      resolve(parent, args) {
+        return Project.aggregate([{ $match: { status: "Not Started" } }]);
       },
     },
   },
@@ -107,24 +115,24 @@ const Mutations = new GraphQLObjectType({
       args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
         description: { type: new GraphQLNonNull(GraphQLString) },
-        status: {
-          type: new GraphQLEnumType({
-            name: "ProjectStatus",
-            values: {
-              new: { value: "Not Started" },
-              progress: { value: "In Progress" },
-              completed: { value: "Completed" },
-            },
-          }),
-          defaultValue: "Not Started",
-        },
+        // status: {
+        //   type: new GraphQLEnumType({
+        //     name: "ProjectStatus",
+        //     values: {
+        //       new: { value: "Not Started" },
+        //       progress: { value: "In Progress" },
+        //       completed: { value: "Completed" },
+        //     },
+        //   }),
+        //   defaultValue: "Not Started",
+        // },
         clientId: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(parent, args) {
         const project = new Project({
           name: args.name,
           description: args.description,
-          status: args.status,
+          status: "Not Started",
           clientId: args.clientId,
         });
         return project.save();

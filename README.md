@@ -7,11 +7,18 @@
 
 This project was build for learning graphQL and its environment.
 
+## Frontend
+
+Inspired by a [Behance](https://www.behance.net/gallery/102040937/Project-management-Teamwork?tracking_source=search_projects%7Cjira%20ui) design.
+
 <br/>
 
 ## Features
 
-🚀 <br/>
+🚀 CRUD Projects<br/>
+🚀 CR-D Clients<br/>
+🚀 Assign Client to a project<br/>
+🚀 Project Status Tracker
 
 <br/>
 
@@ -32,4 +39,5 @@ This project was build for learning graphQL and its environment.
 
 ✔️ Learning GraphQL <br/>
 ✔️ Learning Relations (One2One) <br/>
-✔️ Learning Mutations in GraphQL <br/>
+✔️ Learning Queries & Mutations in GraphQL <br/>
+✔️ Learning Re-Fetch Queries & caching in GraphQL <br/>
