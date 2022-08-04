@@ -22,7 +22,7 @@ const ProjectCol = ({ title, color, projects }) => {
         <span>{title}</span>
       </div>
       <div
-        className="grid grid-cols-1 gap-y-2 h-[50vh] md:h-[60vh] 3xl:h-[65vh] overflow-y-scroll
+        className="grid grid-cols-1 gap-y-2 md:h-[50vh] lg:h-[60vh] 3xl:h-[65vh] overflow-y-scroll
       scrollbar-hide pb-5"
       >
         {projects?.map(

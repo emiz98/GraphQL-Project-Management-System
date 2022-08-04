@@ -21,7 +21,7 @@ function App() {
     <div className="lg:w-screen lg:h-screen bg-white">
       <Header />
       <main className="h-[90%] p-5 md:p-10 bg-gray-100">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row items-start gap-y-2 md:items-center justify-between">
           <div
             onClick={() => setClientsModal(true)}
             className="flex items-center gap-x-2 font-medium text-lg hover:text-primary transitionClass"
@@ -62,7 +62,7 @@ function App() {
             </svg>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-5 gap-5 gap-y-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-5 lg:gap-5 gap-y-10">
             <div>
               <ProjectCol
                 title="Not Ready"
