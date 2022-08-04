@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
+
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const cache = new InMemoryCache({
@@ -24,7 +25,7 @@ const cache = new InMemoryCache({
 });
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
+  uri: import.meta.env.VITE_BACKEND_URI,
   cache,
 });
 

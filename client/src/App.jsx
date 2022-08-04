@@ -4,13 +4,16 @@ import AddClient from "./components/AddClient";
 import AddProject from "./components/AddProject";
 import Header from "./components/Header";
 import ProjectCol from "./components/ProjectCol";
-import ProjectDetail from "./components/ProjectDetail";
 import { GET_PROJECTS } from "./graphQL/queries";
 import { groupProjects } from "./utils/utils";
+import { BsChevronRight } from "react-icons/bs";
+import ViewClients from "./components/ViewClients";
+import { ADD_PROJECT } from "./graphQL/mutations";
 
 function App() {
   const [projectModal, setProjectModal] = useState(false);
   const [clientModal, setClientModal] = useState(false);
+  const [clientsModal, setClientsModal] = useState(false);
 
   const { loading, error, data } = useQuery(GET_PROJECTS);
 
@@ -18,17 +21,27 @@ function App() {
     <div className="lg:w-screen lg:h-screen bg-white">
       <Header />
       <main className="h-[90%] p-5 md:p-10 bg-gray-100">
-        <div className="gap-x-2 flex justify-end">
-          <button
-            onClick={() => setProjectModal(true)}
-            className="btnSecondary"
+        <div className="flex items-center justify-between">
+          <div
+            onClick={() => setClientsModal(true)}
+            className="flex items-center gap-x-2 font-medium text-lg hover:text-primary transitionClass"
           >
-            Add Project
-          </button>
-          <button onClick={() => setClientModal(true)} className="btnPrimary">
-            Add Client
-          </button>
+            <h2 className="">View Clients</h2>
+            <BsChevronRight className="h-4 w-4" />
+          </div>
+          <div className="gap-x-2 flex">
+            <button
+              onClick={() => setProjectModal(true)}
+              className="btnSecondary"
+            >
+              Add Project
+            </button>
+            <button onClick={() => setClientModal(true)} className="btnPrimary">
+              Add Client
+            </button>
+          </div>
         </div>
+
         {loading || error ? (
           <div className="flex items-center justify-center h-[60vh]">
             <svg
@@ -86,6 +99,7 @@ function App() {
       </main>
       {projectModal && <AddProject setProjectModal={setProjectModal} />}
       {clientModal && <AddClient setClientModal={setClientModal} />}
+      {clientsModal && <ViewClients setClientsModal={setClientsModal} />}
     </div>
   );
 }

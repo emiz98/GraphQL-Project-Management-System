@@ -1,15 +1,27 @@
 # Trello Clone Using GraphQL
 
-![Readme Image](https://github.com/emiz98/graphql-practice-project/blob/master/cover.png?raw=true)
+![Readme Image](https://github.com/emiz98/GraphQL-Trello/blob/master/cover.png?raw=true)
 <br/>
 
 ## Description
 
 This project was build for learning graphQL and its environment.
 
+<br/>
+
 ## Frontend
 
 Inspired by a [Behance](https://www.behance.net/gallery/102040937/Project-management-Teamwork?tracking_source=search_projects%7Cjira%20ui) design.
+
+<br/>
+
+## Deployment
+
+heroku login
+heroku create -a example-app
+heroku git:remote -a example-app
+git subtree push --prefix server/ heroku main
+heroku config:set MONGODB_URI=<YOUR_ATLAS_URI>
 
 <br/>
 

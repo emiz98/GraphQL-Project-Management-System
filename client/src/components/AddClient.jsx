@@ -20,6 +20,7 @@ const AddClient = ({ setClientModal }) => {
   const handleAddClient = (e) => {
     e.preventDefault();
     addClient();
+    setClientModal(false);
   };
 
   return (

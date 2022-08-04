@@ -6,13 +6,8 @@ const Header = () => {
       className="flex items-center justify-between px-5 md:px-10 py-5 h-[10%] 
     bg-white shadow-sm"
     >
-      <div className="flex items-center gap-x-20">
-        <img className="h-10" src="trello.png" alt="logo" />
-        <div className="hidden text-lg lg:flex items-center font-medium gap-x-5 text-primary">
-          <h2>Projects</h2>
-          <h2>Clients</h2>
-        </div>
-      </div>
+      <img className="h-10" src="trello.png" alt="logo" />
+
       <div className="flex items-center gap-x-2">
         <div className="relative group cursor-pointer hidden lg:inline-block">
           <div

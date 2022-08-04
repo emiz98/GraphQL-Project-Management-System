@@ -4,7 +4,7 @@
 
 @layer components {
   .transitionClass {
-    @apply transition-all ease-in-out cursor-pointer;
+    @apply transition-all ease-in-out duration-100 cursor-pointer;
   }
 
   .btnPrimary {
