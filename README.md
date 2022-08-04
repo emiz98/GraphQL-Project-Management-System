@@ -1,4 +1,4 @@
-# Project Management System Using GraphQL
+# Trello Clone Using GraphQL
 
 ![Readme Image](https://github.com/emiz98/graphql-practice-project/blob/master/cover.png?raw=true)
 <br/>

@@ -9,6 +9,10 @@ module.exports = {
       colors: {
         primary: "#23719F",
         secondary: "#2b85b9",
+        notReady: "#df5454",
+        inProgress: "#ffb223",
+        inReview: "#5b7deb",
+        Completed: "#24cb61",
       },
     },
   },

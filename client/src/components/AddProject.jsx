@@ -1,6 +1,6 @@
 import { AiOutlineClose } from "react-icons/ai";
 import { useMutation, useQuery } from "@apollo/client";
-import { GET_CLIENTS } from "../graphQL/queries";
+import { GET_CLIENTS, GET_PROJECTS } from "../graphQL/queries";
 import { ADD_PROJECT } from "../graphQL/mutations";
 import { useState } from "react";
 
@@ -17,6 +17,15 @@ const AddProject = ({ setProjectModal }) => {
       description: form.description,
       clientId: form.clientId,
     },
+    update(cache, { data: { addProject } }) {
+      const { projects } = cache.readQuery({ query: GET_PROJECTS });
+      cache.writeQuery({
+        query: GET_PROJECTS,
+        data: {
+          projects: [...projects, addProject],
+        },
+      });
+    },
   });
 
   const handleForm = ({ currentTarget: input }) => {
@@ -26,6 +35,7 @@ const AddProject = ({ setProjectModal }) => {
   const handleAddProject = (e) => {
     e.preventDefault();
     addProject();
+    setProjectModal(false);
   };
 
   return (
@@ -33,9 +43,9 @@ const AddProject = ({ setProjectModal }) => {
       className="h-screen w-screen absolute top-0 left-0 overflow-hidden z-50 
     backdrop-blur-sm flex flex-col items-center justify-center"
     >
-      <div className="p-5 rounded-lg relative bg-gray-100 shadow-md md:w-96">
+      <div className="p-5 rounded-lg relative bg-gray-50 shadow-md md:w-96">
         <div className="flex items-center justify-between pb-6">
-          <h2 className="text-lg font-medium">Add a project</h2>
+          <h2 className="text-lg font-medium">Edit project</h2>
           <AiOutlineClose
             onClick={() => setProjectModal(false)}
             className="border-2 p-1 h-8 w-8 rounded-full border-black hover:bg-gray-300 cursor-pointer"

@@ -1,7 +1,14 @@
 import Project from "./Project";
 import { BsChevronDoubleDown } from "react-icons/bs";
+import ProjectDetail from "./ProjectDetail";
+import { useState } from "react";
 
 const ProjectCol = ({ title, color, projects }) => {
+  const [descriptionModal, setDescriptionModal] = useState({
+    isActive: false,
+    data: null,
+  });
+
   return (
     <div className="group">
       <div
@@ -18,7 +25,7 @@ const ProjectCol = ({ title, color, projects }) => {
         className="grid grid-cols-1 gap-y-2 h-[50vh] md:h-[60vh] 3xl:h-[65vh] overflow-y-scroll
       scrollbar-hide pb-5"
       >
-        {projects.map(
+        {projects?.map(
           ({ id, name, description, createdAt, updatedAt, status, client }) => (
             <Project
               key={id}
@@ -27,15 +34,20 @@ const ProjectCol = ({ title, color, projects }) => {
               description={description}
               createdAt={createdAt}
               client={client}
+              status={status}
+              updatedAt={updatedAt}
+              setDescriptionModal={setDescriptionModal}
             />
           )
         )}
-        {/* <Project
-          title="Dashboard Development"
-          description="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual"
-        /> */}
       </div>
       <BsChevronDoubleDown className="hidden group-hover:lg:inline-block animate-bounce text-center text-[#2b85b9] w-full mt-2" />
+      {descriptionModal.isActive && (
+        <ProjectDetail
+          descriptionModal={descriptionModal}
+          setDescriptionModal={setDescriptionModal}
+        />
+      )}
     </div>
   );
 };

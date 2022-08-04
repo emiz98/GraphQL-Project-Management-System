@@ -27,7 +27,7 @@ const AddClient = ({ setClientModal }) => {
       className="h-screen w-screen absolute top-0 left-0 overflow-hidden z-50 
     backdrop-blur-sm flex flex-col items-center justify-center"
     >
-      <div className="p-5 rounded-lg relative bg-gray-100 shadow-md md:w-96">
+      <div className="p-5 rounded-lg relative bg-gray-50 shadow-md md:w-96">
         <div className="flex items-center justify-between pb-6">
           <h2 className="text-lg font-medium">Add client</h2>
           <AiOutlineClose

@@ -4,7 +4,9 @@ import AddClient from "./components/AddClient";
 import AddProject from "./components/AddProject";
 import Header from "./components/Header";
 import ProjectCol from "./components/ProjectCol";
+import ProjectDetail from "./components/ProjectDetail";
 import { GET_PROJECTS } from "./graphQL/queries";
+import { groupProjects } from "./utils/utils";
 
 function App() {
   const [projectModal, setProjectModal] = useState(false);
@@ -52,7 +54,7 @@ function App() {
               <ProjectCol
                 title="Not Ready"
                 color="#df5454"
-                projects={data?.projects}
+                projects={groupProjects(data.projects)["Not Started"]}
               />
             </div>
 
@@ -60,15 +62,15 @@ function App() {
               <ProjectCol
                 title="In Progress"
                 color="#ffb223"
-                projects={data?.projects}
+                projects={groupProjects(data.projects)["In Progress"]}
               />
             </div>
 
             <div>
               <ProjectCol
-                title="Review"
+                title="In Review"
                 color="#5b7deb"
-                projects={data?.projects}
+                projects={groupProjects(data.projects)["In Review"]}
               />
             </div>
 
@@ -76,7 +78,7 @@ function App() {
               <ProjectCol
                 title="Completed"
                 color="#24cb61"
-                projects={data?.projects}
+                projects={groupProjects(data.projects)["Completed"]}
               />
             </div>
           </div>

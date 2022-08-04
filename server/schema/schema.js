@@ -48,7 +48,7 @@ const RootQuery = new GraphQLObjectType({
     clients: {
       type: new GraphQLList(ClientType),
       resolve(parent, args) {
-        return Client.find();
+        return Client.find().sort({ createdAt: "desc" });
       },
     },
     client: {
@@ -62,7 +62,7 @@ const RootQuery = new GraphQLObjectType({
     projects: {
       type: new GraphQLList(ProjectType),
       resolve(parent, args) {
-        return Project.find();
+        return Project.find().sort({ createdAt: "desc" });
       },
     },
     project: {
@@ -70,12 +70,6 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return Project.findById(args.id);
-      },
-    },
-    projectsByStatus: {
-      type: new GraphQLList(ProjectType),
-      resolve(parent, args) {
-        return Project.aggregate([{ $match: { status: "Not Started" } }]);
       },
     },
   },
@@ -115,17 +109,6 @@ const Mutations = new GraphQLObjectType({
       args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
         description: { type: new GraphQLNonNull(GraphQLString) },
-        // status: {
-        //   type: new GraphQLEnumType({
-        //     name: "ProjectStatus",
-        //     values: {
-        //       new: { value: "Not Started" },
-        //       progress: { value: "In Progress" },
-        //       completed: { value: "Completed" },
-        //     },
-        //   }),
-        //   defaultValue: "Not Started",
-        // },
         clientId: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(parent, args) {
@@ -149,18 +132,20 @@ const Mutations = new GraphQLObjectType({
       type: ProjectType,
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
-        name: { type: GraphQLString },
-        description: { type: GraphQLString },
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        description: { type: new GraphQLNonNull(GraphQLString) },
         status: {
           type: new GraphQLEnumType({
             name: "ProjectStatusUpdate",
             values: {
               new: { value: "Not Started" },
               progress: { value: "In Progress" },
+              review: { value: "In Review" },
               completed: { value: "Completed" },
             },
           }),
         },
+        clientId: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(parent, args) {
         return Project.findByIdAndUpdate(
@@ -170,6 +155,7 @@ const Mutations = new GraphQLObjectType({
               name: args.name,
               description: args.description,
               status: args.status,
+              clientId: args.clientId,
             },
           },
           { new: true }
