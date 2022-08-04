@@ -5,23 +5,36 @@
 
 ## Description
 
-This project was build for learning graphQL and its environment.
-
-<br/>
-
-## Frontend
-
-Inspired by a [Behance](https://www.behance.net/gallery/102040937/Project-management-Teamwork?tracking_source=search_projects%7Cjira%20ui) design.
+This is an fullstack trello clone which was build for learning graphQL and nodejs.
+Frontend was inspired by a [Behance](https://www.behance.net/gallery/102040937/Project-management-Teamwork?tracking_source=search_projects%7Cjira%20ui) design.
 
 <br/>
 
 ## Deployment
 
+<br/>
+
+#### Frontend (Netlify)
+
+##### Make sure you have following config in netlify build settings and make sure to add the environment variable.
+
+```bash
+VITE_BACKEND_URI=<YOUR_HEROKU_BASE_URI>
+```
+
+![Build Image](https://github.com/emiz98/GraphQL-Trello/blob/master/buildsettings.png?raw=true)
+
+<br/>
+
+#### Backend (Heroku Nodejs Buildpack)
+
+```bash
 heroku login
 heroku create -a example-app
 heroku git:remote -a example-app
 git subtree push --prefix server/ heroku main
 heroku config:set MONGODB_URI=<YOUR_ATLAS_URI>
+```
 
 <br/>
 
@@ -39,9 +52,9 @@ heroku config:set MONGODB_URI=<YOUR_ATLAS_URI>
 <p float="left">
     <img src="https://cdn.sanity.io/images/1z5g6za5/production/ea0d729f383fe9f113c7d2da95af5a39eecfa226-64x64.png?w=2000&fit=max&auto=format" width="60"  style="padding-right:20px"/>
     <img src="https://cdn.sanity.io/images/1z5g6za5/production/a882e2949438a37da709d38068e03d9bc33f2fc9-64x64.png?w=2000&fit=max&auto=format" width="60"  style="padding-right:20px"/>
-    <img src="https://cdn.sanity.io/images/1z5g6za5/production/86767b7d764574fac74b912e72322497b278cef6-24x24.svg?w=2000&fit=max&auto=format" width="60"  style="padding-right:20px"/> 
-    <img src="https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci8wOWE1NmNkNDlhNmM2YjM3OWIyN2NkMjg5YjY2ZjcwZT9zaXplPTQ5NiZkZWZhdWx0PXJldHJvIn0.27pPabBKU3mugpyRKVj0AArg3Ys0vO0jHx5TfbAc214" width="60"  style="padding-right:20px; filter:invert(1)"/> 
-    <img src="https://cdn.sanity.io/images/1z5g6za5/production/7c6a0de4ccf01cbcd492b311e19992c2c5234887-256x256.png?w=2000&fit=max&auto=format" width="60"  style="padding-right:20px"/> 
+    <img src="https://cdn.sanity.io/images/1z5g6za5/production/86767b7d764574fac74b912e72322497b278cef6-24x24.svg?w=2000&fit=max&auto=format" width="60"  style="padding-right:20px"/>
+    <img src="https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci8wOWE1NmNkNDlhNmM2YjM3OWIyN2NkMjg5YjY2ZjcwZT9zaXplPTQ5NiZkZWZhdWx0PXJldHJvIn0.27pPabBKU3mugpyRKVj0AArg3Ys0vO0jHx5TfbAc214" width="60"  style="padding-right:20px; filter:invert(1)"/>
+    <img src="https://cdn.sanity.io/images/1z5g6za5/production/7c6a0de4ccf01cbcd492b311e19992c2c5234887-256x256.png?w=2000&fit=max&auto=format" width="60"  style="padding-right:20px"/>
     <img src="https://cdn.sanity.io/images/1z5g6za5/production/97986d3dd7e897b83e06a41aaf9ee7a8de146685-768x768.png?w=2000&fit=max&auto=format" width="60"  style="padding-right:20px"/>
 </p>
 
@@ -52,4 +65,4 @@ heroku config:set MONGODB_URI=<YOUR_ATLAS_URI>
 ✔️ Learning GraphQL <br/>
 ✔️ Learning Relations (One2One) <br/>
 ✔️ Learning Queries & Mutations in GraphQL <br/>
-✔️ Learning Re-Fetch Queries & caching in GraphQL <br/>
+✔️ Learning Re-Fetch Queries & Caching in GraphQL <br/>
