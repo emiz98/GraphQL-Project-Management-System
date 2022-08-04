@@ -12,8 +12,6 @@ Frontend was inspired by a [Behance](https://www.behance.net/gallery/102040937/P
 
 ## Deployment
 
-<br/>
-
 #### Frontend (Netlify)
 
 ##### Make sure you have following config in netlify build settings and make sure to add the environment variable.
@@ -23,8 +21,6 @@ VITE_BACKEND_URI=<YOUR_HEROKU_BASE_URI>
 ```
 
 ![Build Image](https://github.com/emiz98/GraphQL-Trello/blob/master/buildsettings.png?raw=true)
-
-<br/>
 
 #### Backend (Heroku Nodejs Buildpack)
 
