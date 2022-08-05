@@ -3,10 +3,10 @@ import { BsChevronRight, BsFillBellFill } from "react-icons/bs";
 const Header = () => {
   return (
     <div
-      className="flex items-center justify-between px-5 md:px-10 py-5 h-[10%] 
-    bg-white shadow-sm"
+      className="flex items-center justify-between px-5 md:px-10 py-5 z-50
+    bg-white shadow-md fixed top-0 w-full"
     >
-      <img className="h-10" src="trello.png" alt="logo" />
+      <img className="h-8 md:h-10" src="trello.png" alt="logo" />
 
       <div className="flex items-center gap-x-2">
         <div className="relative group cursor-pointer hidden lg:inline-block">
@@ -22,7 +22,7 @@ const Header = () => {
           <span className="text-sm text-gray-600">Developer</span>
         </div>
         <img
-          className="rounded-full w-12 h-12 p-[2px] border-2 border-primary"
+          className="rounded-full w-10 lg:w-12 object-contain p-[2px] border-2 border-primary"
           src="https://avatars.githubusercontent.com/u/64089619?v=4"
           alt="profile"
         />

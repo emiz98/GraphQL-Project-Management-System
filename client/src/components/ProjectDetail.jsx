@@ -3,13 +3,12 @@ import { AiOutlineClose } from "react-icons/ai";
 import TimeAgo from "react-timeago";
 
 const ProjectDetail = ({ descriptionModal, setDescriptionModal }) => {
-  console.log(descriptionModal);
   return (
     <div
       className="h-screen w-screen absolute top-0 left-0 overflow-hidden z-50 
   backdrop-blur-sm flex flex-col items-center justify-center"
     >
-      <div className="p-5 rounded-lg relative bg-white shadow-md md:w-2/5">
+      <div className="p-5 rounded-lg relative bg-white shadow-lg m-5 md:w-2/5">
         <div className="flex justify-end">
           <AiOutlineClose
             onClick={() => setDescriptionModal(false)}
@@ -42,19 +41,21 @@ const ProjectDetail = ({ descriptionModal, setDescriptionModal }) => {
         </div>
         <div className="my-5">
           <h4 className="font-medium mb-2">Assigned Client</h4>
-          <div className="flex items-center gap-x-2">
-            <img
-              className="h-10 w-10 rounded-full p-[2px] border-2 border-primary"
-              src="user.png"
-              alt="user"
-            />
-            <div className="flex flex-col">
-              <span className="text-sm font-medium">
-                {descriptionModal.data.client.name}
-              </span>
-              <span className="text-xs text-gray-600">
-                {descriptionModal.data.client.email}
-              </span>
+          <div className="flex items-center justify-between max-w-sm">
+            <div className="flex items-center gap-x-2">
+              <img
+                className="h-10 w-10 rounded-full p-[2px] border-2 border-primary"
+                src="user.png"
+                alt="user"
+              />
+              <div className="flex flex-col">
+                <span className="text-sm font-medium">
+                  {descriptionModal.data.client.name}
+                </span>
+                <span className="text-xs text-gray-600">
+                  {descriptionModal.data.client.email}
+                </span>
+              </div>
             </div>
             <a
               href={`tel:${descriptionModal.data.client.phone}`}

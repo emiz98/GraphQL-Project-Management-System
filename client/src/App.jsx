@@ -18,9 +18,9 @@ function App() {
   const { loading, error, data } = useQuery(GET_PROJECTS);
 
   return (
-    <div className="lg:w-screen lg:h-screen bg-white">
+    <div className="lg:w-screen lg:h-screen bg-white overflow-hidden">
       <Header />
-      <main className="h-[90%] p-5 md:p-10 bg-gray-100">
+      <main className="h-screen p-5 md:p-10 bg-gray-100 !pt-24 overflow-y-scroll lg:overflow-hidden scroll-smooth">
         <div className="flex flex-col md:flex-row items-start gap-y-2 md:items-center justify-between">
           <div
             onClick={() => setClientsModal(true)}
